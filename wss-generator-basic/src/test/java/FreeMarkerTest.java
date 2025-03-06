@@ -28,8 +28,11 @@ public class FreeMarkerTest {
     public void test() throws IOException, TemplateException {
 
         Configuration configuration = new Configuration(Configuration.VERSION_2_3_22);
-        configuration.setDirectoryForTemplateLoading(new File("src/main/resources/templates"));
+        File file = new File("src/main/resources/templates");
+        System.out.println(file.getAbsoluteFile());
+        configuration.setDirectoryForTemplateLoading(file);
         configuration.setDefaultEncoding("UTF-8");
+//IdeaProjects\wss-generator\wss-generator-basic\src\main\resources\templates
         configuration.setTemplateExceptionHandler(TemplateExceptionHandler.RETHROW_HANDLER);
         configuration.setNumberFormat("0.#####");
         Template template = configuration.getTemplate("myweb.htm.ftl");
