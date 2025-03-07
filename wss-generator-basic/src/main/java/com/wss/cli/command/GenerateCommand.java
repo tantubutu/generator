@@ -23,15 +23,15 @@ import java.util.concurrent.Callable;
 @Data
 public class GenerateCommand implements Callable<Integer> {
 
-    @CommandLine.Option(names= {"-a","--author"},description = "作者名称",arity = "0..1",interactive = true)
+    @CommandLine.Option(names= {"-a","--author"},description = "作者名称",arity = "0..1",interactive = true,echo = true)
     private String author = "wss";
 
-    @CommandLine.Option(names= {"-o","--output"},description = "输出文本",arity = "0..1",interactive = true)
+    @CommandLine.Option(names= {"-o","--output"},description = "输出文本",arity = "0..1",interactive = true,echo = true)
     private String outputText = "Sum = ";
     /**
      * 是否循环
      */
-    @CommandLine.Option(names={"-l", "--loop"},description = "是否循环",arity = "0..1",interactive = true)
+    @CommandLine.Option(names={"-l", "--loop"},description = "是否循环",arity = "0..1",interactive = true,echo = true)
     private boolean loop = true;
 
     @Override
