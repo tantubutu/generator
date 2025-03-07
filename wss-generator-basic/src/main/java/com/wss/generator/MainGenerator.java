@@ -17,7 +17,8 @@ import java.io.IOException;
  * @Version 1.0
  */
 public class MainGenerator {
-    public static void main(String[] args) throws TemplateException, IOException {
+    public static void doGenerate(MainTemplateConfig mainTemplateConfig) throws TemplateException, IOException {
+        //todo 路径写死，优化
         //复制静态文件
         String projectPath = System.getProperty("user.dir");
         //输入路径
@@ -31,10 +32,7 @@ public class MainGenerator {
        String DynamicInputPath = projectPath + File.separator +"wss-generator-basic/src/main/resources/templates/MainTemplate.java.ftl";
         String DynamicOutputPath = projectPath +  File.separator + "acm-template/src/com/wss/acm/MainTemplate.java";
 
-        MainTemplateConfig mainTemplateConfig = new MainTemplateConfig();
-        mainTemplateConfig.setAuthor("wss");
-        mainTemplateConfig.setOutputText("outputResult2");
-        mainTemplateConfig.setLoop(false);
+
         DynamicGenerator.doGenerator(DynamicInputPath, DynamicOutputPath, mainTemplateConfig);
 
     }

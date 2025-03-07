@@ -28,7 +28,7 @@ public class MainTemplate {
                 for (int num : arr) {
                     sum += num;
                 }
-                System.out.println("${outputText}): " + sum);
+                System.out.println("${outputText}: " + sum);
         <#if loop>
             }
         </#if>
