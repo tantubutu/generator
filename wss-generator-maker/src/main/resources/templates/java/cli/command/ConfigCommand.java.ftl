@@ -1,8 +1,9 @@
-package com.wss.maker.cli.command;
+package ${basePackage}.maker.cli.command;
 
 import cn.hutool.core.util.ReflectUtil;
-import com.wss.maker.model.DataModel;
+import ${basePackage}.maker.model.DataModel;
 import picocli.CommandLine;
+
 import java.lang.reflect.Field;
 
 /**
@@ -14,7 +15,7 @@ import java.lang.reflect.Field;
  * @Create 2025/3/7 14:11
  * @Version 1.0
  */
-@CommandLine.Command(name="config",mixinStandardHelpOptions = true)
+@CommandLine.Command(name="config",description = "查看参数信息",mixinStandardHelpOptions = true)
 public class ConfigCommand implements Runnable{
 
     @Override

@@ -1,6 +1,6 @@
 package com.wss.maker;
 
-import com.wss.maker.cli.CommandExecutor;
+//import com.wss.maker.cli.CommandExecutor;
 
 /**
  * ClassName: ${NAME}
@@ -16,7 +16,7 @@ public class Main {
        // args = new String[]{"generate", "-l", "-a", "-o"};
       //  args = new String[]{"config"};
         //args = new String[]{"list"};
-        CommandExecutor commandExecutor = new CommandExecutor();
-        commandExecutor.doExecute(args);
+//        CommandExecutor commandExecutor = new CommandExecutor();
+//        commandExecutor.doExecute(args);
     }
 }
