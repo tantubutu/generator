@@ -35,6 +35,7 @@ public class MetaManager {
         String metaJson = ResourceUtil.readUtf8Str("meta.json");
         Meta newMeta = JSONUtil.toBean(metaJson, Meta.class);
         //todo 配置文件处理默认值
+
          return newMeta;
     }
 

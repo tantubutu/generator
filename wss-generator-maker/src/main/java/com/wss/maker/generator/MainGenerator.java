@@ -1,8 +1,11 @@
 package com.wss.maker.generator;
+import com.wss.maker.meta.Meta.ModelConfigDTO;
+import com.wss.maker.meta.Meta.FileConfigDTO;
 
 import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.util.StrUtil;
 import com.wss.maker.generator.file.DynamicFileGenerator;
+import com.wss.maker.generator.file.StaticFileGenerator;
 import com.wss.maker.meta.Meta;
 import com.wss.maker.meta.MetaManager;
 import freemarker.template.TemplateException;
@@ -20,35 +23,26 @@ import java.io.IOException;
  * @Version 1.0
  */
 public class MainGenerator {
-    public static void main(String[] args) throws TemplateException, IOException {
-        Meta metaObject = MetaManager.getMetaObject();
-        System.out.println(metaObject);
+
+    public static void doGenerate(Object model) throws TemplateException, IOException {
 
         //输出的根路径
-        String projectPath = System.getProperty("user.dir");
-        String outputPath = projectPath + File.separator +"generated";
-        if(!FileUtil.exist(outputPath)){
-            FileUtil.mkdir(outputPath);
-        }
-        //读取 resources 目录
-        String inputResourcesPath = projectPath + File.separator + "src/main/resources";
+        String inputRootPath = "D:\\workspace_program\\workspace_JAVA\\IdeaProjects\\wss-generator\\wss-generator-demo-projects\\acm-template-pro";
+        String outputRootPath = "D:\\workspace_program\\workspace_JAVA\\IdeaProjects\\wss-generator";
+        String inputPath;
+        String outputPath;
+        inputPath = new File(inputRootPath,"src/com/wss/acm/MainTemplate.java.ftl").getAbsolutePath();
+        outputPath = new File(outputRootPath,"src/com/wss/acm/MainTemplate.java").getAbsolutePath();
+        DynamicFileGenerator.doGenerator(inputPath,outputPath,model);
 
-       // ClassPathResource classPathResource = new ClassPathResource("src/main/resources");
-       // String inputResourcesPath = classPathResource.getAbsolutePath();
-        /**
-         * D:/workspace_program/workspace_JAVA/IdeaProjects/wss-generator/wss-generator-maker/target/classes/
-         * 在 Maven 项目中，src/main/resources 和 src/main/java 中的文件在编译后会被复制到 target/classes 目录。
-         */
+        inputPath = new File(inputRootPath,".gitignore").getAbsolutePath();
+        outputPath = new File(outputRootPath,".gitignore").getAbsolutePath();
+        StaticFileGenerator.copyFilesByHutool(inputPath,outputPath);
 
-        //java包的基础路径
-        //com.wss
-        String outputBasePackage = metaObject.getBasePackage();
-        //com/wss
-        String outputBasePackagePath = StrUtil.join("/", StrUtil.split(outputBasePackage, "."));
-        String outputBaseJavaPackagePath = outputPath + File.separator + "src/main/java/" + outputBasePackagePath;
-
-        String inputFilePath;
-        String outputFilePath;
+        inputPath = new File(inputRootPath,".README.md").getAbsolutePath();
+        outputPath = new File(outputRootPath,"README.md").getAbsolutePath();
+        StaticFileGenerator.copyFilesByHutool(inputPath,outputPath);
+/*
 
         //model.DataModel,java
         inputFilePath = inputResourcesPath + File.separator +"templates/java/model/DataModel.java.ftl";
@@ -79,6 +73,11 @@ public class MainGenerator {
         inputFilePath = inputResourcesPath + File.separator + "templates/java/Main.java.ftl";
         outputFilePath = outputBaseJavaPackagePath + "/Main.java";
         DynamicFileGenerator.doGenerator(inputFilePath , outputFilePath, metaObject);
+
+*/
+
+
+
     }
 
 }
