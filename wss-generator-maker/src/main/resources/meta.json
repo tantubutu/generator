@@ -6,8 +6,9 @@
   "author": "wss",
   "createTime": "2025-03-08",
   "fileConfig": {
-    "inputRootPath": "D:\\workspace_program\\workspace_JAVA\\IdeaProjects\\wss-generator\\wss-generator-demo-projects\\acm-template-pro",
+    "inputRootPath":".source/acm-template-pro" ,
     "outputRootPath": "generated",
+    "sourceRootPath":"D:\\workspace_program\\workspace_JAVA\\IdeaProjects\\wss-generator\\wss-generator-demo-projects\\acm-template-pro",
     "type": "dir",
     "files": [
       {

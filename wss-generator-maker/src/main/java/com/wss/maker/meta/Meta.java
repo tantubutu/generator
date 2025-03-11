@@ -3,17 +3,9 @@ package com.wss.maker.meta;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
 import java.util.List;
 
-/**
- * ClassName: Meta
- * Package: com.wss.maker.meta
- * Description:
- *
- * @Author
- * @Create 2025/3/8 15:21
- * @Version 1.0
- */
 @NoArgsConstructor
 @Data
 public class Meta {
@@ -24,40 +16,53 @@ public class Meta {
     private String version;
     private String author;
     private String createTime;
-    private FileConfigDTO fileConfig;
-    private ModelConfigDTO modelConfig;
+    private FileConfig fileConfig;
+    private ModelConfig modelConfig;
 
     @NoArgsConstructor
     @Data
-    public static class FileConfigDTO {
+    public static class FileConfig implements Serializable {
         private String inputRootPath;
         private String outputRootPath;
+        private String sourceRootPath;
         private String type;
-        private List<FileInto> files;
+        private List<FileInfo> files;
 
         @NoArgsConstructor
         @Data
-        public static class FileInto {
+        public static class FileInfo implements Serializable {
             private String inputPath;
             private String outputPath;
             private String type;
             private String generateType;
+            private String condition;
+            private String groupKey;
+            private String groupName;
+            private List<FileInfo> files;
         }
     }
 
     @NoArgsConstructor
     @Data
-    public static class ModelConfigDTO {
-        private List<ModelInto> models;
+    public static class ModelConfig implements Serializable {
+        private List<ModelInfo> models;
 
         @NoArgsConstructor
         @Data
-        public static class ModelInto {
+        public static class ModelInfo implements Serializable {
             private String fieldName;
             private String type;
             private String description;
             private Object defaultValue;
             private String abbr;
+            private String groupKey;
+            private String groupName;
+            private List<ModelInfo> models;
+            private String condition;
+
+            // 中间参数
+            // 该分组下所有参数拼接字符串
+            private String allArgsStr;
         }
     }
 }

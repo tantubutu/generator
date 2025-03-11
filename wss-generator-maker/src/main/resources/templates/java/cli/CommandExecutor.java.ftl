@@ -1,20 +1,16 @@
-package ${basePackage}.maker.cli;
+package ${basePackage}.cli;
 
-import ${basePackage}.maker.cli.command.ConfigCommand;
-import ${basePackage}.maker.cli.command.GenerateCommand;
-import ${basePackage}.maker.cli.command.ListCommand;
+import ${basePackage}.cli.command.GenerateCommand;
+import ${basePackage}.cli.command.JsonGenerateCommand;
+import ${basePackage}.cli.command.ListCommand;
+import ${basePackage}.cli.command.ConfigCommand;
 import picocli.CommandLine;
+import picocli.CommandLine.Command;
 
 /**
- * ClassName: CommandExecutor
- * Package: com.wss.cli
- * Description:
- *
- * @Author
- * @Create 2025/3/7 14:13
- * @Version 1.0
+ * 命令执行器
  */
-@CommandLine.Command(name = "${name}", mixinStandardHelpOptions = true)
+@Command(name = "${name}", mixinStandardHelpOptions = true)
 public class CommandExecutor implements Runnable {
 
     private final CommandLine commandLine;
@@ -23,7 +19,8 @@ public class CommandExecutor implements Runnable {
         commandLine = new CommandLine(this)
                 .addSubcommand(new GenerateCommand())
                 .addSubcommand(new ConfigCommand())
-                .addSubcommand(new ListCommand());
+                .addSubcommand(new ListCommand())
+                .addSubcommand(new JsonGenerateCommand());
     }
 
     @Override

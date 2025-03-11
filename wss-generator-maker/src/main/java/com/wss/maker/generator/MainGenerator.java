@@ -1,13 +1,7 @@
 package com.wss.maker.generator;
-import com.wss.maker.meta.Meta.ModelConfigDTO;
-import com.wss.maker.meta.Meta.FileConfigDTO;
 
-import cn.hutool.core.io.FileUtil;
-import cn.hutool.core.util.StrUtil;
 import com.wss.maker.generator.file.DynamicFileGenerator;
 import com.wss.maker.generator.file.StaticFileGenerator;
-import com.wss.maker.meta.Meta;
-import com.wss.maker.meta.MetaManager;
 import freemarker.template.TemplateException;
 
 import java.io.File;
@@ -33,10 +27,11 @@ public class MainGenerator {
         String outputPath;
         inputPath = new File(inputRootPath,"src/com/wss/acm/MainTemplate.java.ftl").getAbsolutePath();
         outputPath = new File(outputRootPath,"src/com/wss/acm/MainTemplate.java").getAbsolutePath();
-        DynamicFileGenerator.doGenerator(inputPath,outputPath,model);
+        DynamicFileGenerator.doGenerate(inputPath,outputPath,model);
 
         inputPath = new File(inputRootPath,".gitignore").getAbsolutePath();
         outputPath = new File(outputRootPath,".gitignore").getAbsolutePath();
+
         StaticFileGenerator.copyFilesByHutool(inputPath,outputPath);
 
         inputPath = new File(inputRootPath,".README.md").getAbsolutePath();
