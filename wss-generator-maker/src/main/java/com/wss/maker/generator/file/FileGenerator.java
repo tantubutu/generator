@@ -14,8 +14,6 @@ public class FileGenerator {
      * 生成
      *
      * @param model 数据模型
-     * @throws TemplateException
-     * @throws IOException
      */
     public static void doGenerate(Object model) throws TemplateException, IOException {
         String projectPath = System.getProperty("user.dir");

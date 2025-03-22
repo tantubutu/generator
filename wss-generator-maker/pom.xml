@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.yupi</groupId>
-    <artifactId>yuzi-generator-maker</artifactId>
+    <groupId>com.wss</groupId>
+    <artifactId>wss-generator-maker</artifactId>
     <version>1.0</version>
 
     <properties>
@@ -66,7 +66,7 @@
                     </descriptorRefs>
                     <archive>
                         <manifest>
-                            <mainClass>com.yupi.maker.Main</mainClass> <!-- 替换为你的主类的完整类名 -->
+                            <mainClass>com.wss.maker.Main</mainClass> <!-- 替换为你的主类的完整类名 -->
                         </manifest>
                     </archive>
                 </configuration>

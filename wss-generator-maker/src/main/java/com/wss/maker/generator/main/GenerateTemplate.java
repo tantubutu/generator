@@ -1,4 +1,4 @@
-package com.wss.maker.generator.main;
+﻿package com.wss.maker.generator.main;
 
 import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.util.StrUtil;
@@ -182,8 +182,8 @@ public abstract class GenerateTemplate {
         // 拷贝 jar 包
         String targetAbsolutePath = distOutputPath + File.separator + "target";
         FileUtil.mkdir(targetAbsolutePath);
-        String jarAbsolutePath = outputPath + File.separator + jarPath;
-        FileUtil.copy(jarAbsolutePath, targetAbsolutePath, true);
+        String jarAbsolutePath = outputPath ;//+ File.separator + jarPath;
+        FileUtil.copy(targetAbsolutePath,jarAbsolutePath,  true);
         // 拷贝脚本文件
         FileUtil.copy(shellOutputFilePath, distOutputPath, true);
         FileUtil.copy(shellOutputFilePath + ".bat", distOutputPath, true);
